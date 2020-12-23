@@ -106,9 +106,9 @@ navigator.mediaDevices
       }
     });
   chatInputBox.addEventListener("focus",()=>{
-    document.getElementById("chat__Btn").classList.remove("has__new");
+    document.getElementById("chat__Btn")/*.classList.remove("has__new")*/;
     pendingMsg=0;
-    document.getElementById("chat__Btn").children[1].innerHTML=`Chat`;
+    document.getElementById("chat__Btn")/*.children[1].innerHTML=`Chat`*/;
   });
 
 
@@ -120,16 +120,17 @@ navigator.mediaDevices
         li.classList.add("otherUser");
         li.innerHTML =`<div><b>User (<small>${message.user}</small>):</b>${message.msg}</div>`;
       }else{
-        li.innerHTML=`<div><b>Me:</b>${message.msg}</div>`;
+        li.classList.add("Me");
+        li.innerHTML=`<div><b>Me: (<small>${message.user}</small>):</b>${message.msg}</div>`;
       }
       
       all_messages.append(li);
       main__chat__window.scrollTop = main__chat__window.scrollHeight;
       if(message.user !=currentUserId){
         pendingMsg++;
-        playChatSound();
-        document.getElementById("chat__Btn").classList.add("has__new");
-        document.getElementById("chat__Btn").children[1].innerHTML= `Chat(${pendingMsg})`;
+        /*playChatSound();*/
+        document.getElementById("chat__Btn")/*.classList.add("has__new")*/;
+        document.getElementById("chat__Btn")/*.children[1].innerHTML= `Chat(${pendingMsg})`*/;
                     }
                   });
 
